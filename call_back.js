@@ -4,7 +4,7 @@ const posts=[
     
 ];
 function getPosts(){
-    setTimeout(()=>{
+    setInterval(()=>{
         let output="";
         posts.forEach((post)=>{
             output+=`<li>${post.title} :last updated ${Math.floor((new Date().getTime()-post.createdAt)/1000)} seconds ago</li><br>`;
@@ -27,9 +27,10 @@ createPost({title:"post three", des:"this is post three"},getPosts);
 
 function createFourthPost(post,callback){
     setTimeout(()=>{
-        posts.push(post);
+        posts.push({...post,createdAt:new Date().getTime()})
+
         callback();
-    },3000);
+    },4000);
 };
 
-createPost({title:"post four",des:"this is post four"},getPosts);
+createFourthPost({title:"post four",des:"this is post four"},getPosts);
