@@ -101,4 +101,3 @@ preMovie().then((function_returned_value)=>console.log(`person3: shows ${functio
 
 console.log('person4: shows ticket');
 console.log('person5: shows ticket');
-//
